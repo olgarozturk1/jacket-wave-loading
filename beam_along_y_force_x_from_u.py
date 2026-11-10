@@ -1,3 +1,6 @@
+"""Beam along y: horizontal x forces from u.
+Separate-component drag follows Morisons lecture, printed page 83.
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -21,22 +24,18 @@ T = 2 * np.pi / omega
 time = np.linspace(0, T, 20001)
 theta = omega * time - k * x_member
 
-# WAVE VELOCITIES AT THE MEMBER
+# HORIZONTAL WAVE VELOCITY AT THE MEMBER
 B = a * omega / np.sinh(k * d)
 R = k * (z_member + d)
 
 u = B * np.cosh(R) * np.sin(theta)
-w = B * np.sinh(R) * np.cos(theta)
 
 # HORIZONTAL ACCELERATION
 ax = omega * B * np.cosh(R) * np.cos(theta)
 
-# BOTH u AND w ARE NORMAL TO A MEMBER ALONG y
-normal_speed = np.sqrt(u**2 + w**2)
-
-# HORIZONTAL FORCES
+# HORIZONTAL FORCES: SEPARATE u|u| DRAG MODEL
 # Integration along y reduces to multiplication by L.
-Fd = 0.5 * rho * CD * D * L * u * normal_speed
+Fd = 0.5 * rho * CD * D * L * u * np.abs(u)
 
 Fi = rho * CM * (np.pi * D**2 / 4) * L * ax
 
