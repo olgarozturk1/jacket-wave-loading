@@ -4,6 +4,10 @@ Python calculations and an interactive jacket structure viewer developed for our
 
 **[Open the interactive structure viewer](https://jacket-structure-viewer.y655375436.chatgpt.site)**
 
+## Checked results for Part 1
+
+Run `python part1_results.py` for one table of the wave-force results and the current-only forces. [The Part 1 check](PART1_CHECK.md) lists updated totals and phases, small rounding differences from the comparison document, and the remaining KC-definition issue. `part1c_current_only.py` calculates the four current-only cases separately.
+
 ## Naming convention
 
 - `along_x` or `along_y` identifies the beam's orientation.
@@ -63,13 +67,13 @@ With alpha = atan(42/30) = 54.4623 degrees, the positive unit normal for the fro
 - `Fz_from_w = Fn_from_w * cos(alpha)` (vertical, along z).
 - `Fx_from_w = 0` for this normal-force contribution.
 
-The positive y and z peaks of each force term occur together because they are positive constant multiples of the same signed normal force. Drag, inertia and total have different peak phases. Using the saved fixed-crest parameters at x = 0:
+The positive y and z peaks of each force term occur together because they are positive constant multiples of the same signed normal force. Drag, inertia and total have different peak phases. Using the saved parameters at x = 0, with w-drag integrated to SWL and vertical-acceleration inertia to the crest:
 
 | Force caused by w | Maximum +y (kN) | Maximum +z (kN) | Local phase (degrees) |
 | --- | ---: | ---: | ---: |
-| Drag | 52.04 | 37.17 | 0.00 |
+| Drag | 28.49 | 20.35 | 0.00 |
 | Inertia | 20.29 | 14.49 | 270.00 |
-| Total at the same instant | 54.02 | 38.58 | 348.76 |
+| Total at the same instant | 32.10 | 22.93 | 339.14 |
 
 The separate scripts plot y and z individually and print the simultaneous drag/inertia values at maximum total. Their signs match the falling-y front brace in the viewer.
 
@@ -88,7 +92,7 @@ The alternative vector-drag law would use `u*sqrt(u**2+(w*cos(alpha))**2)` for t
 
 The viewer illustrates projections rather than a drag calculation. Its full normal-speed display can include both u and w without implying that its separate force arrows implement the coupled drag law.
 
-The brace scripts generally use the requested fixed integration limits z = -35 to +6 m for both drag and inertia throughout the cycle. This is a fixed-crest approximation, not an instantaneous wetted-length model. Above-SWL evaluations extend the linear-wave kinematics.
+The scripts use prescribed component-specific fixed limits. The column and yellow x-force integrate u-drag to the crest and horizontal inertia to SWL. The yellow w-force integrates drag to SWL and vertical inertia to the crest. The red brace integrates both normal-velocity contributions to the crest, with horizontal-acceleration inertia cut off at SWL and vertical-acceleration inertia extending to the crest. The complete limits are listed in [the Part 1 check](PART1_CHECK.md). These are coursework approximations, not an instantaneous wetted-length model. Above-SWL evaluations extend the linear-wave kinematics.
 
 Most scripts use rho = 1025 kg/m³, Cd = 1.2, Cm = 0.8, a = 6 m, k = 0.043 m⁻¹ and omega = 0.628 rad/s. The saved scripts themselves are the source of their parameter values.
 
