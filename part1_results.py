@@ -29,7 +29,7 @@ MEMBERS = [
 
 
 def collect_wave_results():
-    root = Path(__file__).resolve().parent
+    root = Path(__file__).resolve().parent / "just wave"
     rows = []
     for filename, label in MEMBERS:
         previous_show = plt.show

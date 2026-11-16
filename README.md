@@ -4,6 +4,10 @@ Python calculations and an interactive jacket structure viewer developed for our
 
 **[Open the interactive structure viewer](https://jacket-structure-viewer.y655375436.chatgpt.site)**
 
+## Waves only: Q1(a) and Q1(b)
+
+The eight wave-only member scripts are in **[just wave](just%20wave/README.md)**. Their calculations are unchanged by this folder move. Run `python part1_results.py` from the repository root for the existing summary of wave-only and current-only results.
+
 ## Q1(d): Wave and current
 
 The eight checked wave-and-current scripts are in **[wave and current](wave%20and%20current/README.md)**. They include the corrected red-diagonal origin and preserve the agreed integration limits. See that folder for the script list and Spyder instructions.
@@ -23,20 +27,20 @@ Run `python part1_results.py` for one table of the wave-force results and the cu
 
 Every main script includes drag, inertia and their simultaneous total. For the red brace, `forces_x_and_z` means both coordinate directions.
 
-## The eight calculation scripts
+## The eight wave-only calculation scripts
 
 The names identify the member orientation, output force direction and velocity contribution. The model assumptions are described below.
 
 | Script | Member | Force output | Velocity dependence |
 | --- | --- | --- | --- |
-| [beam_along_y_force_x_from_u.py](beam_along_y_force_x_from_u.py) | Lower beam along y | Horizontal x | u and its horizontal acceleration; separate-component drag. |
-| [beam_along_x_force_z_from_w.py](beam_along_x_force_z_from_w.py) | Lower beam along x | Vertical z | w and its acceleration; phase varies along x. |
-| [beam_along_y_force_z_from_w.py](beam_along_y_force_z_from_w.py) | Lower beam along y | Vertical z | w and its acceleration; constant x. |
-| [red_brace_xz_forces_x_and_z.py](red_brace_xz_forces_x_and_z.py) | Brace rising in +x, in the x-z plane | Horizontal x and vertical z | Normal velocity and acceleration projected from u and w. |
-| [yellow_brace_yz_force_y_from_w.py](yellow_brace_yz_force_y_from_w.py) | Front yellow brace in the y-z plane | Horizontal y | w-only normal force, resolved into y. |
-| [yellow_brace_yz_force_z_from_w.py](yellow_brace_yz_force_z_from_w.py) | Front yellow brace in the y-z plane | Vertical z | w-only normal force, resolved into z. |
-| [yellow_brace_yz_force_x_from_u.py](yellow_brace_yz_force_x_from_u.py) | Yellow brace in the y-z plane | Horizontal x | u and its horizontal acceleration; separate-component drag. |
-| [vertical_column_force_x_from_u.py](vertical_column_force_x_from_u.py) | Vertical column along z | Horizontal x | u and its acceleration. |
+| [beam_along_y_force_x_from_u.py](just%20wave/beam_along_y_force_x_from_u.py) | Lower beam along y | Horizontal x | u and its horizontal acceleration; separate-component drag. |
+| [beam_along_x_force_z_from_w.py](just%20wave/beam_along_x_force_z_from_w.py) | Lower beam along x | Vertical z | w and its acceleration; phase varies along x. |
+| [beam_along_y_force_z_from_w.py](just%20wave/beam_along_y_force_z_from_w.py) | Lower beam along y | Vertical z | w and its acceleration; constant x. |
+| [red_brace_xz_forces_x_and_z.py](just%20wave/red_brace_xz_forces_x_and_z.py) | Brace rising in +x, in the x-z plane | Horizontal x and vertical z | Normal velocity and acceleration projected from u and w. |
+| [yellow_brace_yz_force_y_from_w.py](just%20wave/yellow_brace_yz_force_y_from_w.py) | Front yellow brace in the y-z plane | Horizontal y | w-only normal force, resolved into y. |
+| [yellow_brace_yz_force_z_from_w.py](just%20wave/yellow_brace_yz_force_z_from_w.py) | Front yellow brace in the y-z plane | Vertical z | w-only normal force, resolved into z. |
+| [yellow_brace_yz_force_x_from_u.py](just%20wave/yellow_brace_yz_force_x_from_u.py) | Yellow brace in the y-z plane | Horizontal x | u and its horizontal acceleration; separate-component drag. |
+| [vertical_column_force_x_from_u.py](just%20wave/vertical_column_force_x_from_u.py) | Vertical column along z | Horizontal x | u and its acceleration. |
 
 ## Run a calculation
 
@@ -49,8 +53,8 @@ python -m pip install -r requirements.txt
 Open a script in Spyder and press Run, or run it from this folder:
 
 ```sh
-python yellow_brace_yz_force_y_from_w.py
-python yellow_brace_yz_force_z_from_w.py
+python "just wave/yellow_brace_yz_force_y_from_w.py"
+python "just wave/yellow_brace_yz_force_z_from_w.py"
 ```
 
 Results appear in the console and plots open in a window. Functions return N; tables and plots generally use kN. Total force means drag plus inertia at the same instant, followed by a search for the maximum.
