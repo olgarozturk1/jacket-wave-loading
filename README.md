@@ -4,6 +4,12 @@ Python calculations and an interactive jacket structure viewer developed for our
 
 **[Open the interactive structure viewer](https://jacket-structure-viewer.y655375436.chatgpt.site)**
 
+## Q1(d): Wave and current
+
+The eight checked wave-and-current scripts are in **[wave and current](wave%20and%20current/README.md)**. They include the corrected red-diagonal origin and preserve the agreed integration limits. See that folder for the script list and Spyder instructions.
+
+**Current reporting status:** total-force maxima and their associated phases/times remain provisional working outputs. The report retains separate drag and inertia results and leaves total columns blank pending assessment.
+
 ## Checked results for Part 1
 
 Run `python part1_results.py` for one table of the wave-force results and the current-only forces. [The Part 1 check](PART1_CHECK.md) lists updated totals and phases, small rounding differences from the comparison document, and the remaining KC-definition issue. `part1c_current_only.py` calculates the four current-only cases separately.
